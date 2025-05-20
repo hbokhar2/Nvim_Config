@@ -30,4 +30,3 @@ require("lazy").setup({
 })
 
 require("config.keybinds") --Configures Keybinds
-
