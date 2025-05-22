@@ -46,6 +46,9 @@ return {
       --Configures lua lsp
       require("lspconfig").lua_ls.setup{capabilities = capabilities}
 
+      --Need to fix ada-language-server and fix dependency hell
+      --require("lspconfig").ada_ls.setup{}
+
     end,
   },
 }
