@@ -29,4 +29,5 @@ require("lazy").setup({
 	checker = {enabled = true},
 })
 
+vim.g.did_ftplugin_ada = 1
 require("config.keybinds") --Configures Keybinds
