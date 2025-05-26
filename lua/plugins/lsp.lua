@@ -99,6 +99,16 @@ return {
 
       }
 
+      require("lspconfig").cmake.setup({
+        cmd = { "cmake-language-server" },
+        filetypes = { "cmake" },
+        init_options = {
+          buildDirectory = "build"
+        },
+        single_file_support = true,
+        capabilities = vim.lsp.protocol.make_client_capabilities()
+      })
+
     end,
   },
 }
