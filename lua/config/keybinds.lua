@@ -9,3 +9,6 @@ vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = "Go to declaration" 
 vim.keymap.set('n', 'gr', function() require('fzf-lua').lsp_references() end, { desc = "Find references" })
 vim.keymap.set('n', 'gi', function() require('fzf-lua').lsp_implementations() end, { desc = "Find implementations" })
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = "Show documentation" })
+
+--Home
+vim.keymap.set("n", "<Home>", "<cmd>Alpha<CR>")
