@@ -10,5 +10,11 @@ vim.keymap.set('n', 'gr', function() require('fzf-lua').lsp_references() end, { 
 vim.keymap.set('n', 'gi', function() require('fzf-lua').lsp_implementations() end, { desc = "Find implementations" })
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = "Show documentation" })
 
+--Error View
+vim.keymap.set("n", "<leader>e", function()
+  vim.diagnostic.setqflist()
+  vim.cmd("copen")
+end, { desc = "Open diagnostics list" })
+
 --Home
 vim.keymap.set("n", "<Home>", "<cmd>Alpha<CR>")

@@ -1,19 +1,4 @@
 return {
-
-  --[[Automatically installs LSPs
-  {
-    "mason-org/mason-lspconfig.nvim",
-    opts = {
-      ensure_installed = {"lua_ls", "clangd"},
-    },
-    dependencies = {
-      {"mason-org/mason.nvim", opts = {}},
-      "neovim/nvim-lspconfig",
-    },
-  }, 
-
-  I want to try not using Mason for a bit. Want to be less dependent on plugins.]]
-
   -- Defines vim globally for Lua_LSP
   {
     "neovim/nvim-lspconfig",
@@ -34,6 +19,13 @@ return {
 
       -- Assigns symbols for debugging 
       vim.diagnostic.config({
+        float = {
+          border = "rounded",
+          focusable = false,
+          style = "minimal",
+          header = "",
+          prefix = ""
+        },
         virtual_text = {
           prefix = "●",
           spacing = 4,
