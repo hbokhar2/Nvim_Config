@@ -82,7 +82,7 @@ return {
             "-I/usr/include/x86_64-linux-gnu",
             "-I/usr/lib/gcc/x86_64-linux-gnu/12/include"
           }
-        }
+        },
       })
 
       require("lspconfig").lua_ls.setup{
