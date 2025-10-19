@@ -1,5 +1,4 @@
 return {
-  -- Defines vim globally for Lua_LSP
   {
     "neovim/nvim-lspconfig",
     dependencies = {
@@ -7,8 +6,12 @@ return {
         "folke/lazydev.nvim",
         ft = "lua",
         opts = {
-          library = {
-            {path = "${3rd}/luv/library", words = {"vim%.uv"}}
+          Lua = {
+            diagnostics = { globals = { "vim" } },
+            library = {
+              [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+              [vim.fn.stdpath("data") .. "/lazy/luv/library"] = true,
+            },
           },
         },
       },
@@ -16,8 +19,7 @@ return {
     },
 
     config = function()
-
-      -- Assigns symbols for debugging 
+      -- Diagnostic config
       vim.diagnostic.config({
         float = {
           border = "rounded",
@@ -26,81 +28,57 @@ return {
           header = "",
           prefix = ""
         },
-        virtual_text = {
-          prefix = "●",
-          spacing = 4,
-        },
-        signs = {
-          text = {
-            [vim.diagnostic.severity.ERROR] = "E",
-            [vim.diagnostic.severity.WARN] = "W",
-            [vim.diagnostic.severity.INFO] = "I",
-            [vim.diagnostic.severity.HINT] = "H",
-          },
-          -- Optional: customize highlight groups
-          texthl = {
-            [vim.diagnostic.severity.ERROR] = "DiagnosticSignError",
-            [vim.diagnostic.severity.WARN] = "DiagnosticSignWarn",
-            [vim.diagnostic.severity.INFO] = "DiagnosticSignInfo",
-            [vim.diagnostic.severity.HINT] = "DiagnosticSignHint",
-          },
-        },
-
+        virtual_text = { prefix = "●", spacing = 4 },
+        signs = true,
         underline = true,
         update_in_insert = false,
         severity_sort = true,
-
       })
 
       -- Set diagnostic signs
       local signs = { Error = "E", Warn = "W", Hint = "H", Info = "I" }
       for type, icon in pairs(signs) do
-        local hl = "DiagnosticSign"..type
+        local hl = "DiagnosticSign" .. type
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
       end
 
-      --Autocompletion
+      -- Autocompletion capabilities
       local capabilities = require("blink.cmp").get_lsp_capabilities()
 
-      --Clang LSP Configuratoin
-      require("lspconfig").clangd.setup({
+      -- clangd
+      vim.lsp.config.clangd = {
         capabilities = capabilities,
-
         cmd = {
           "clangd",
-          "--compile-commands-dir=build", --Allows for clang to know project build structure.
-          '--query-driver=/usr/sbin/gcc,/usr/sbin/g++,/usr/sbin/x86_64-linux-gnu-gcc', --Allows for clang to use compiler paths.
+          "--compile-commands-dir=" .. os.getenv("HORRORGAME_ROOT") .. "/HorrorGameCXX/Build",
+          "--query-driver=/usr/sbin/gcc,/usr/sbin/g++,/usr/sbin/x86_64-linux-gnu-gcc",
           "--background-index",
           "--clang-tidy",
           "--completion-style=detailed",
         },
-
-        filetypes = { "c", "cpp" },
+        filetypes = { "c", "cpp", "h", "hpp" },
         init_options = {
           fallbackFlags = {
             "-I/usr/include",
             "-I/usr/include/x86_64-linux-gnu",
             "-I/usr/lib/gcc/x86_64-linux-gnu/12/include"
           }
-        },
-      })
-
-      require("lspconfig").lua_ls.setup{
-
-        capabilities = capabilities,
-
+        }
       }
 
-      require("lspconfig").cmake.setup({
+      -- CMake LSP
+      vim.lsp.config.cmake = {
         cmd = { "cmake-language-server" },
         filetypes = { "cmake" },
-        init_options = {
-          buildDirectory = "build"
-        },
+        init_options = { buildDirectory = "build" },
         single_file_support = true,
-        capabilities = vim.lsp.protocol.make_client_capabilities()
-      })
+        capabilities = capabilities,
+      }
 
+      -- Enable servers
+      vim.lsp.enable("clangd")
+      vim.lsp.enable("cmake")
     end,
-  },
+  }
 }
+

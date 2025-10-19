@@ -1,6 +1,6 @@
-vim.opt.tabstop = 2 -- Tab Spacing
-vim.opt.shiftwidth = 2 -- Indent amount with << and >>
-vim.opt.expandtab = true -- User spaces instead of tabs
+vim.opt.tabstop = 6 -- Tab Spacing
+vim.opt.shiftwidth = 6 -- Indent amount with << and >>
+vim.opt.expandtab = false -- User spaces instead of tabs
 vim.opt.number = true -- Absolute line numbers
 vim.opt.relativenumber = true -- Relative line numbers
 vim.defer_fn(function()
