@@ -50,7 +50,7 @@ return {
         capabilities = capabilities,
         cmd = {
           "clangd",
-          "--compile-commands-dir=" .. os.getenv("HORRORGAME_ROOT") .. "/HorrorGameCXX/Build",
+          "--compile-commands-dir=" .. os.getenv("IBADAH") .. "/HorrorGameCXX/Build",
           "--query-driver=/usr/sbin/gcc,/usr/sbin/g++,/usr/sbin/x86_64-linux-gnu-gcc",
           "--background-index",
           "--clang-tidy",
