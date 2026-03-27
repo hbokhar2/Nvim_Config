@@ -1,7 +1,7 @@
 {
   "cord.nvim": { "branch": "master", "commit": "283e4a5bdafd0d6187f28e5b739cccab6b4c9c64" },
   "fzf-lua": { "branch": "main", "commit": "bde73a6886b607246095aa59f396de5e0d036890" },
+  "koda.nvim": { "branch": "main", "commit": "a560a332ccc1eb2caacb280a390213bb9f37b3cb" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
-  "moonfly": { "branch": "master", "commit": "d11b3d04cc1cb71a778d67a4df73283a5a6d66f4" },
   "nvim-web-devicons": { "branch": "master", "commit": "d7462543c9e366c0d196c7f67a945eaaf5d99414" }
 }
