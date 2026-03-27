@@ -2,6 +2,7 @@ local Keybinds = require('Keybinds')
 
 require('Lsp.lua_lsp')
 require('Lsp.c_cxx_lsp')
+require('Lsp.py_lsp')
 
 -- Configure diagnostics with modern signs
 vim.diagnostic.config({

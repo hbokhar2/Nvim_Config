@@ -10,9 +10,6 @@ local config = {
 	filetypes = {
 		"c",
 		"cpp",
-		"cxx",
-		"h",
-		"hpp"
 	},
 
 	root_markers = {

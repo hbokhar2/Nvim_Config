@@ -1,4 +1,4 @@
-vim.cmd('colorscheme unokai')
+vim.cmd('colorscheme zaibatsu')
 
 --Black Background
 --vim.api.nvim_set_hl(0, 'Normal', {bg = '#000000'})
