@@ -1,7 +1,7 @@
 {
-  "catppuccin": { "branch": "main", "commit": "05e8787020dcfdb937bf2ff23855ea2415b4e072" },
-  "cord.nvim": { "branch": "master", "commit": "8f081613c1314a0d6f38839c2788216621efb4d9" },
-  "fzf-lua": { "branch": "main", "commit": "511651f198068ef5841ee1635ade58daa2486ef7" },
+  "cord.nvim": { "branch": "master", "commit": "012dcf6d0507e1525a682b46d6de2188fd68980c" },
+  "fzf-lua": { "branch": "main", "commit": "05e44d38de0a79c11fba5f7bf8138791b1dbdd1e" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
-  "nvim-web-devicons": { "branch": "master", "commit": "2ae6958df7ced50baac5035cec0c15799eedfbf7" }
+  "nvim-web-devicons": { "branch": "master", "commit": "2ae6958df7ced50baac5035cec0c15799eedfbf7" },
+  "vim-vividchalk": { "branch": "master", "commit": "be5c6251279bfcfa55cdea8c9a8ccd7a56c8a642" }
 }
